@@ -1,0 +1,108 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 858e6a13184188a63ee64c3f2618f40989a1506704dce4c5d64d47780e3bb4a5
+
+name:           yallc
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ArmaanT/yallc#readme>
+homepage:       https://github.com/ArmaanT/yallc#readme
+bug-reports:    https://github.com/ArmaanT/yallc/issues
+author:         Armaan Tobaccowalla & Campbell Phalen
+maintainer:     armaan@tobaccowalla.com
+copyright:      2020 Armaan Tobaccowalla & Campbell Phalen
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/ArmaanT/yallc
+
+library
+  exposed-modules:
+      Backend
+      LC4
+      LC4.Ast
+      LC4.Generator
+      LC4.Parser
+      LC4.Printer
+      LC4.Simulator
+      LL
+      LL.Ast
+      LL.Generator
+      LL.Parser
+      LL.Simulator
+      Parser
+      PP
+      Utils
+  other-modules:
+      Paths_yallc
+  hs-source-dirs:
+      src
+  ghc-options: -Wincomplete-patterns -Wno-orphans -Wno-unused-imports
+  build-depends:
+      HUnit >=1.6
+    , QuickCheck ==2.13.2
+    , QuickCheck-GenT
+    , base >=4.13 && <4.14
+    , cmdargs
+    , containers ==0.6.2.1
+    , directory
+    , mtl
+    , parsec
+    , pretty >=1.1.3
+  default-language: Haskell2010
+
+executable yallc
+  main-is: Main.hs
+  other-modules:
+      Paths_yallc
+  hs-source-dirs:
+      app
+  ghc-options: -Wincomplete-patterns -Wno-orphans -Wno-unused-imports -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit >=1.6
+    , QuickCheck ==2.13.2
+    , QuickCheck-GenT
+    , base >=4.13 && <4.14
+    , cmdargs
+    , containers ==0.6.2.1
+    , directory
+    , mtl
+    , parsec
+    , pretty >=1.1.3
+    , yallc
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Programs
+      TestBackend
+      TestLC4Simulator
+      TestLLSimulator
+      TestUtils
+      Paths_yallc
+  hs-source-dirs:
+      test
+  ghc-options: -Wincomplete-patterns -Wno-orphans -Wno-unused-imports -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit >=1.6
+    , QuickCheck ==2.13.2
+    , QuickCheck-GenT
+    , base >=4.13 && <4.14
+    , cmdargs
+    , containers ==0.6.2.1
+    , directory
+    , mtl
+    , parsec
+    , pretty >=1.1.3
+    , yallc
+  default-language: Haskell2010
